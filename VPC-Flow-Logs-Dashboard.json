@@ -92,7 +92,7 @@
               "expression": "stats avg(bytes), min(bytes), max(bytes)",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",

@@ -184,7 +184,7 @@
               "expression": "filter action=\"ACCEPT\" |\nstats avg(bytes), min(bytes), max(bytes)",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -250,7 +250,7 @@
               "expression": "filter action=\"REJECT\"\n| stats count(*) as numRejections by srcAddr\n| sort numRejections desc\n| limit 20",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -319,7 +319,7 @@
               "expression": "filter action=\"REJECT\"\n| stats count(*) as numRejections by srcAddr\n| sort numRejections\n| limit 20",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -416,7 +416,7 @@
               "expression": "filter action=\"REJECT\"\n| stats count(*) as numRejections by @timestamp\n| sort @timestamp desc",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -490,7 +490,7 @@
               "expression": "stats sum(packets) as packetsTransferred by srcAddr, dstAddr\n| sort packetsTransferred  desc\n| limit 20",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -564,7 +564,7 @@
               "expression": "stats sum(bytes) as bytesTransferred by srcAddr, dstAddr\n| sort bytesTransferred desc\n| limit 10",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -638,7 +638,7 @@
               "expression": "stats avg( end - start)/1000 as latency group by srcAddr, dstAddr\n| sort by latency desc\n| limit 10",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -706,7 +706,7 @@
               "expression": "stats sum(packets) as packetsTransferred by srcAddr, dstAddr\n| limit 4",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -782,7 +782,7 @@
               "expression": "filter flowDirection=\"egress\" and trafficPath=8\n| stats sum(bytes) by azId",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -851,7 +851,7 @@
               "expression": "filter dstPort=80 and not(isempty(instanceId))\n| stats sum(bytes) as BytesReceived by instanceId",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",
@@ -936,7 +936,7 @@
               "expression": "filter action=\"ACCEPT\" and pktDstAwsService=\"DYNAMODB\"\n| stats sum(bytes) as Received",
               "id": "",
               "logGroupNames": [
-                "vpc-flow-log-VPCFlowLogGroup-SKbQPvYd3mPN"
+                "/aws/lbox-devops-prd-vpc-flow-logs/vpc-0fe6ab02d275ff1f2"
               ],
               "namespace": "",
               "queryMode": "Logs",

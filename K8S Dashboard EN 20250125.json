@@ -6675,7 +6675,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "K8S Dashboard EN 20250125 2",
+  "title": "01. 쿠버네티스 대시보드: 노드/파드/컨테이너 리소스 모니터링",
   "uid": "ea9d10f7-a466-4634-8f4c-60f46a8a247",
   "version": 1
 }

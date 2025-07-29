@@ -24,8 +24,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -91,8 +90,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum (container_memory_working_set_bytes{pod=~\"^$Deployment$Statefulset$Daemonset.*$\", node=~\"^$Node$\", pod!=\"\"}) / sum (kube_node_status_allocatable{node=~\"^$Node.*$\", resource=\"memory\"}) * 100",
@@ -109,8 +107,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -177,8 +174,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus"
           },
           "expr": "sum (rate (container_cpu_usage_seconds_total{pod_name=~\"^$Deployment$Statefulset$Daemonset.*$\", kubernetes_io_hostname=~\"^$Node$\"}[2m])) / sum (machine_cpu_cores{kubernetes_io_hostname=~\"^$Node$\"}) * 100",
           "format": "time_series",
@@ -193,8 +189,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -260,8 +255,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus"
           },
           "expr": "(((sum(kube_deployment_status_replicas{deployment=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_statefulset_replicas{statefulset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_daemonset_status_desired_number_scheduled{daemonset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0))) - ((sum(kube_deployment_status_replicas_available{deployment=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_statefulset_status_replicas{statefulset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_daemonset_status_number_ready{daemonset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)))) / ((sum(kube_deployment_status_replicas{deployment=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_statefulset_replicas{statefulset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_daemonset_status_desired_number_scheduled{daemonset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0))) * 100",
           "format": "time_series",
@@ -275,8 +269,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -336,8 +329,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus"
           },
           "editorMode": "code",
           "expr": "sum (container_memory_working_set_bytes{pod=~\"^$Deployment$Statefulset$Daemonset.*$\", node=~\"^$Node$\", pod!=\"\"})",
@@ -353,8 +345,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -414,8 +405,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum (kube_node_status_allocatable{node=~\"^$Node.*$\", resource=\"memory\"})",
@@ -431,8 +421,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -492,8 +481,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "expr": "sum (rate (container_cpu_usage_seconds_total{pod_name=~\"^$Deployment$Statefulset$Daemonset.*$\", kubernetes_io_hostname=~\"^$Node$\"}[1m]))",
           "format": "time_series",
@@ -507,8 +495,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -568,8 +555,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "expr": "sum (machine_cpu_cores{kubernetes_io_hostname=~\"^$Node$\"})",
           "intervalFactor": 2,
@@ -582,8 +568,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -643,8 +628,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "expr": "(sum(kube_deployment_status_replicas_available{deployment=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_statefulset_status_replicas{statefulset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_daemonset_status_number_ready{daemonset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0))",
           "format": "time_series",
@@ -658,8 +642,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -719,8 +702,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "expr": "(sum(kube_deployment_status_replicas{deployment=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_statefulset_replicas{statefulset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0)) + (sum(kube_daemonset_status_desired_number_scheduled{daemonset=~\".*$Deployment$Statefulset$Daemonset\"}) or vector(0))",
           "format": "time_series",
@@ -735,8 +717,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -837,8 +818,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum (rate (container_cpu_usage_seconds_total{image!=\"\",container!=\"POD\",pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\"}[1m])) by (pod,node)",
@@ -854,8 +834,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum (kube_pod_container_resource_requests{pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\", resource=\"cpu\"}) by (pod,node)",
@@ -869,8 +848,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum ((kube_node_status_allocatable{node=~\"^$Node$\", resource=\"cpu\"})) by (node)",
@@ -888,8 +866,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -986,8 +963,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum (container_memory_working_set_bytes{id!=\"/\",pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\"}) by (pod,node)",
@@ -1003,8 +979,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum ((kube_pod_container_resource_requests{pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\", resource=\"memory\"})) by (pod,node)",
@@ -1017,8 +992,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum ((kube_node_status_allocatable{node=~\"^$Node$\", resource=\"memory\"})) by (node)",
@@ -1036,8 +1010,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -1120,8 +1093,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "100 * (kubelet_volume_stats_used_bytes{node=~\"^$Node$\", persistentvolumeclaim=~\".*$Deployment$Statefulset$Daemonset.*$\"} / kubelet_volume_stats_capacity_bytes{node=~\"^$Node$\", persistentvolumeclaim=~\".*$Deployment$Statefulset$Daemonset.*$\"})",
@@ -1138,8 +1110,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "type": "prometheus" 
       },
       "fieldConfig": {
         "defaults": {
@@ -1224,8 +1195,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "sum (rate (container_network_receive_bytes_total{id!=\"/\",pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\"}[1m])) by (pod, node)",
@@ -1240,8 +1210,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "P1809F7CD0C75ACF3"
+            "type": "prometheus" 
           },
           "editorMode": "code",
           "expr": "- sum( rate (container_network_transmit_bytes_total{id!=\"/\",pod=~\"^$Deployment$Statefulset$Daemonset.*$\",node=~\"^$Node$\"}[1m])) by (pod, node)",

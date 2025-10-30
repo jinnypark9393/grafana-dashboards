@@ -1095,7 +1095,7 @@
           "datasource": {
             "type": "prometheus" 
           },
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "Utilization Rate",
@@ -1105,7 +1105,7 @@
           "datasource": {
             "type": "prometheus" 
           },
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}))",
           "instant": true,
           "interval": "",
           "legendFormat": "Usage",
@@ -2604,7 +2604,7 @@
             "type": "prometheus" 
           },
           "exemplar": false,
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}) by (node)",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})) by (node)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -2708,7 +2708,7 @@
             "type": "prometheus" 
           },
           "exemplar": false,
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})by (node) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})by (node)",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}))by (node) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"})by (node)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -3956,19 +3956,6 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum((node_filesystem_size_bytes{cluster=~\"$cluster\",pod=~\"$Pod\",container =~\"$Container\",container !=\"\",container!=\"POD\",node=~\"^$Node$\",namespace=~\"$NameSpace\"}) by (container,pod,node,namespace)",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "",
-          "refId": "J"
-        },
-        {
-          "datasource": {
-            "type": "prometheus" 
-          },
-          "editorMode": "code",
-          "exemplar": false,
           "expr": "kube_pod_container_status_restarts_total{cluster=~\"$cluster\",pod=~\"$Pod\",container =~\"$Container\",container !=\"\",container!=\"POD\",namespace=~\"$NameSpace\"} * on (pod) group_left(node) kube_pod_info{cluster=~\"$cluster\",pod=~\"$Pod\",node=~\"^$Node$\",namespace=~\"$NameSpace\"}",
           "format": "table",
           "hide": false,
@@ -3997,7 +3984,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}) by (container,pod,node,namespace)",
+          "expr": "sum(node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",node=~\"^$Node$\"}) by (node)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -5509,39 +5496,12 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg((node_filesystem_size_bytes{cluster=~\"$cluster\",container =~\"$Container\",container !=\"\",container!=\"POD\",namespace=~\"$NameSpace\"}) by (container)",
-              "format": "table",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "J"
-            },
-            {
-              "datasource": {
-                "type": "prometheus" 
-              },
-              "editorMode": "code",
-              "exemplar": false,
               "expr": "count(kube_pod_container_info{cluster=~\"$cluster\",container =~\"$Container\",container !=\"\",container!=\"POD\",namespace=~\"$NameSpace\"}) by(container,namespace)",
               "format": "table",
               "instant": true,
               "interval": "",
               "legendFormat": "",
               "refId": "G"
-            },
-            {
-              "datasource": {
-                "type": "prometheus" 
-              },
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "avg(node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"}) by (container)",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "M"
             }
           ],
           "title": "Microservices (Container Name) Resource Statistics",

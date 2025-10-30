@@ -1095,7 +1095,7 @@
           "datasource": {
             "type": "prometheus" 
           },
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"}) * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"})) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"}))",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"}) * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"}) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "Utilization Rate",
@@ -1105,7 +1105,7 @@
           "datasource": {
             "type": "prometheus" 
           },
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"}) * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"}))",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"}) * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "Usage",
@@ -1115,7 +1115,7 @@
           "datasource": {
             "type": "prometheus" 
           },
-          "expr": "sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"}))",
+          "expr": "sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "Total",
@@ -2604,7 +2604,7 @@
             "type": "prometheus" 
           },
           "exemplar": false,
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"}) * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"})) by (node)",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"}) * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"}) by (node)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -2617,7 +2617,7 @@
             "type": "prometheus" 
           },
           "exemplar": false,
-          "expr": "sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"})) by (node)",
+          "expr": "sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"}) by (node)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -2708,7 +2708,7 @@
             "type": "prometheus" 
           },
           "exemplar": false,
-          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"}) * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"}))by (node) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\"} * on(instance) group_left(node) max by (instance, node) (kube_node_info{cluster=~\"$cluster\",node=~\"^$Node$\"}))by (node)",
+          "expr": "sum ((node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} - node_filesystem_avail_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"}) * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"})by (node) / sum (node_filesystem_size_bytes{cluster=~\"$cluster\",mountpoint=\"/\",fstype!~\"tmpfs|overlay\",job=\"node-exporter\"} * on(pod, namespace) group_left(node) kube_pod_info{cluster=~\"$cluster\",node=~\"^$Node$\"})by (node)",
           "format": "table",
           "hide": false,
           "instant": true,

@@ -1008,7 +1008,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Utilization"
+              "options": "Utilization Rate"
             },
             "properties": [
               {
@@ -1016,7 +1016,8 @@
                 "value": "percentunit"
               },
               {
-                "id": "max"
+                "id": "max",
+                "value": 1
               },
               {
                 "id": "min",
